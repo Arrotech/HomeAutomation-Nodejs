@@ -62,6 +62,52 @@ app.get('/api/v1/devices/:id', (req, res) => {
   });
 });
 
+//Update a specific device
+app.put('/api/v1/devices/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  let deviceFound;
+  let itemIndex;
+  db.map((device, index) => {
+    if (device.id === id) {
+      deviceFound = device;
+      itemIndex = index;
+    }
+  });
+
+  if (!deviceFound) {
+    return res.status(404).send({
+      success: 'false',
+      message: 'device not found',
+    });
+  }
+
+  if (!req.body.name) {
+    return res.status(400).send({
+      success: 'false',
+      message: 'name is required',
+    });
+  } else if (!req.body.category) {
+    return res.status(400).send({
+      success: 'false',
+      message: 'category is required',
+    });
+  }
+
+  const updatedDevice = {
+    id: deviceFound.id,
+    name: req.body.name || deviceFound.name,
+    category: req.body.category || deviceFound.category,
+  };
+
+  db.splice(itemIndex, 1, updatedDevice);
+
+  return res.status(201).send({
+    success: 'true',
+    message: 'device updated successfully',
+    updatedDevice,
+  });
+});
+
 //Delete a specific device
 app.delete('/api/v1/devices/:id', (req, res) => {
   const id = parseInt(req.params.id, 10);
