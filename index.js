@@ -1,8 +1,39 @@
 import express from 'express';
 import db from './db/db';
+import bodyParser from 'body-parser';
 
 // Set up the express app
 const app = express()
+
+//Parse incoming requests data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//Add a new device
+app.post('/api/v1/devices', (req, res) => {
+  if(!req.body.name) {
+    return res.status(400).send({
+      success: 'false',
+      message: 'name is required'
+    });
+  } else if(!req.body.category) {
+    return res.status(400).send({
+      success: 'false',
+      message: 'category is required'
+    });
+  }
+ const device = {
+   id: db.length + 1,
+   name: req.body.name,
+   category: req.body.category
+ }
+ db.push(device);
+ return res.status(201).send({
+   success: 'true',
+   message: 'device added successfully',
+   device
+ })
+});
 
 // get all devices
 app.get('/api/v1/devices', (req, res) => {
