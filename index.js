@@ -62,5 +62,28 @@ app.get('/api/v1/devices/:id', (req, res) => {
   });
 });
 
+//Delete a specific device
+app.delete('/api/v1/devices/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  db.map((device, index) => {
+    if (device.id === id) {
+       db.splice(index, 1);
+       return res.status(200).send({
+         success: 'true',
+         message: 'device deleted successfuly',
+       });
+    }
+  });
+
+
+    return res.status(404).send({
+      success: 'false',
+      message: 'device not found',
+    });
+
+ 
+});
+
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.info(`Server has started on ${PORT}`))
