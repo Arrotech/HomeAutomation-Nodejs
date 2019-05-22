@@ -44,5 +44,23 @@ app.get('/api/v1/devices', (req, res) => {
     })
   });
 
+//Fetch a specific device
+app.get('/api/v1/devices/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  db.map((device) => {
+    if (device.id === id) {
+      return res.status(200).send({
+        success: 'true',
+        message: 'device retrieved successfully',
+        device,
+      });
+    } 
+});
+ return res.status(404).send({
+   success: 'false',
+   message: 'device does not exist',
+  });
+});
+
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.info(`Server has started on ${PORT}`))
