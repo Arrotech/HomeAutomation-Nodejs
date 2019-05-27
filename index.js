@@ -34,9 +34,12 @@ app.get('/', (req, res) => {
 require('./app/routes/device.routes.js')(app);
 
 // listen for requests
-app.listen(3000, () => {
+var server = app.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
 
 
-module.exports = app; // for testing
+module.exports = {
+    server : server,
+    app : app
+};

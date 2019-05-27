@@ -8,7 +8,6 @@
     "start-watch": "nodemon index.js --exec babel-node --",
     "start-db": "sudo service mongod start",
     "test": "nyc mocha --recursive --exit",
-    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "keywords": [
@@ -23,12 +22,14 @@
     "body-parser": "^1.19.0",
     "chai-http": "^4.3.0",
     "express": "^4.17.0",
+    "lint": "^1.1.2",
     "mongoose": "^5.5.11"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "codecov": "^3.5.0",
     "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
     "grunt": "^1.0.4",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-coveralls": "^2.0.0",

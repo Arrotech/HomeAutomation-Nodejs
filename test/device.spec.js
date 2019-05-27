@@ -1,10 +1,11 @@
 let mongoose = require("mongoose");
 let Device = require('../app/models/device.model.js');
+let app = require('../index').app;
+let server = require('../index').server;
 
 const expect = require('chai').expect;
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('../index');
 let should = chai.should();
 
 
@@ -76,11 +77,11 @@ describe('Devices', () => {
    */
   describe('/PUT/:id device', () => {
      it('it should UPDATE a device given the id', (done) => {
-         let device = new Device({name: "remote", category: "controls"})
+         let device = new Device({name: "TV", category: "Electronic"})
          device.save((err, device) => {
                chai.request(server)
                .put('/devices/' + device.id)
-               .send({name: "remotia", author: "controlia"})
+               .send({name: "remotia", category: "controlia"})
                .end((err, res) => {
                      console.log(res.body);
                      res.body.should.be.a('object');
