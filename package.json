@@ -9,7 +9,10 @@
     "start-db": "sudo service mongod start",
     "test": "mocha --recursive --exit"
   },
-  "keywords": [],
+  "keywords": [
+    "home-automation",
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -28,5 +31,8 @@
     "request": "^2.88.0",
     "should": "^13.2.3",
     "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
