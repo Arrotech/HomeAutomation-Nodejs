@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Arrotech/HomeAutomation-Nodejs.svg?branch=develop)](https://travis-ci.org/Arrotech/HomeAutomation-Nodejs) [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/) [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Build Status](https://travis-ci.org/Arrotech/HomeAutomation-Nodejs.svg?branch=develop)](https://travis-ci.org/Arrotech/HomeAutomation-Nodejs) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![npm version](http://img.shields.io/npm/v/REPO.svg?style=flat)](https://npmjs.org/package/REPO "View this project on npm")
 
 
 
@@ -22,14 +22,13 @@ Below are the Endpoints that have been created.
 
 **TOOLS TO BE USED IN THE CHALLENGE**
 1. Server-Side Framework:[Node Javascript Framework](https://nodejs.org/en/docs/)
-2. Linting Library:[Pylint, a Python Linting Library](https://www.pylint.org/)
-3. Style Guide:[PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/)
-4. Testing Endpoints: [PostMan](https://www.getpostman.com/)
 
 
 **Requirements**
 
-		npm install node
+
+
+    npm install node
 
     npm install express
 
