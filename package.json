@@ -7,9 +7,9 @@
     "start": "node index.js",
     "start-watch": "nodemon index.js --exec babel-node --",
     "start-db": "sudo service mongod start",
-    "test": "mocha --recursive --exit",
-    "posttest": "tap --coverage-report=text-lcov | codecov",
-    "codecov": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec"
+    "test": "nyc mocha --recursive --exit",
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test"
   },
   "keywords": [
     "home-automation",
@@ -29,10 +29,15 @@
     "chai": "^4.2.0",
     "codecov": "^3.5.0",
     "coveralls": "^3.0.3",
+    "grunt": "^1.0.4",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-coveralls": "^2.0.0",
+    "jest": "^24.8.0",
     "mocha": "^6.1.4",
     "mocha-lcov-reporter": "^1.3.0",
     "mockgoose": "^8.0.2",
     "nodemon": "^1.19.0",
+    "nyc": "^14.1.1",
     "request": "^2.88.0",
     "should": "^13.2.3",
     "supertest": "^4.0.2"

@@ -1,22 +1,17 @@
+sudo: false
 language:
   - node_js
 node_js:
   - "stable"
-
 install:
-  - cat requirements.txt | xargs npm install -g
-  - npm install coveralls
-  - npm install mocha-lcov-reporter
-  - npm install -g codecov
-  - npm install -g istanbul
+  - npm ci
 cache:
   directories:
     - "node_modules"
 services:
   - mongodb
 script:
-  - istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec
-  - codecov
-after_success:
-- coveralls
-- codecov
+  - npm run lint
+  - npm run test:coveralls
+notifications:
+  email: false
