@@ -3,15 +3,23 @@ language:
   - node_js
 node_js:
   - "stable"
+
 install:
-  - npm ci
+  - cat requirements.txt | xargs npm install -g
+  - npm install coveralls --save-dev
+  - npm install --save-dev jest
+  - npm install jest
+  - npm install coveralls
+  - npm install mocha-lcov-reporter
+  - npm install -g codecov
+  - npm install -g istanbul
+
 cache:
   directories:
     - "node_modules"
 services:
   - mongodb
 script:
-  - npm run lint
   - npm run test:coveralls
 notifications:
   email: false
