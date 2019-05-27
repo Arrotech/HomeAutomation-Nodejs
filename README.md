@@ -1,4 +1,4 @@
-[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/) [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Build Status](https://travis-ci.org/Arrotech/HomeAutomation-Nodejs.svg?branch=develop)](https://travis-ci.org/Arrotech/HomeAutomation-Nodejs) [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/) [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 
 
@@ -26,31 +26,25 @@ Below are the Endpoints that have been created.
 3. Style Guide:[PEP8 Style Guide](https://www.python.org/dev/peps/pep-0008/)
 4. Testing Endpoints: [PostMan](https://www.getpostman.com/)
 
- 
+
 **Requirements**
 
-		Install node
+		npm install node
 
-        Install express
+    npm install express
 
-        Install nodemon
+    npm install nodemon
 
-        Install babel
+    npm install babel
 
-		Install pip
-
-		virtualenv
-
-		
 
 
 **How to run the application**
  1. Make a new directory on your computer
- 2. `git clone` this  <code>[repo](https://github.com/Arrotech/Politico_Api/)</code>
+ 2. `git clone` this  <code>[repo](https://github.com/Arrotech/HomeAutomation-Nodejs/)</code>
  3. Create virtual environment by typing this in the terminal - virtualenv -p python3 venv
- 4. run `pip install -r requirements.txt` on the terminal to install the dependencies
+ 4. run `cat requirements.txt | xargs npm install -g` on the terminal to install the dependencies
  5. Then type on the terminal ```npm run start-watch``` to start and run the server
- 6. Then on [postman](https://www.getpostman.com/), use the above url's
 
 
 

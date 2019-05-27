@@ -49,6 +49,42 @@ describe('Devices', () => {
             });
       });
   });
+  //Post a device with empty name
+  describe('/POST devices', () => {
+      it('it should POST a book ', (done) => {
+          let device = {
+              name: "",
+              category: "Electronic",
+          }
+        chai.request(server)
+            .post('/devices')
+            .send(device)
+            .end((err, res) => {
+                const body = res.body;
+                console.log(res.body);
+                expect(body.message).to.equal('Device name can not be empty');
+              done();
+            });
+      });
+  });
+  //Post a device with empty category
+  describe('/POST devices', () => {
+      it('it should POST a book ', (done) => {
+          let device = {
+              name: "TV",
+              category: "",
+          }
+        chai.request(server)
+            .post('/devices')
+            .send(device)
+            .end((err, res) => {
+                const body = res.body;
+                console.log(res.body);
+                expect(body.message).to.equal('Device category can not be empty');
+              done();
+            });
+      });
+  });
   /*
    * Test the /GET/:id route
    */
