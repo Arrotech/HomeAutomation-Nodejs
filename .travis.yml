@@ -20,6 +20,6 @@ cache:
 services:
   - mongodb
 script:
-  - npm run test:coveralls
+  - npm run test
 notifications:
   email: false
