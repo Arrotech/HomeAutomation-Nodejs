@@ -16,7 +16,6 @@ services:
   - mongodb
 script:
   - istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec
-  ./node_modules/.bin/codecov
   - codecov
 after_success:
 - coveralls
