@@ -2,8 +2,20 @@ language:
   - node_js
 node_js:
   - "stable"
+
+install:
+  - cat requirements.txt | xargs npm install -g
+  - npm install coveralls
+  - npm install mocha-lcov-reporter
+  - npm install -g istanbul
 cache:
   directories:
     - "node_modules"
 services:
   - mongodb
+script:
+  - istanbul cover _mocha
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+- coveralls
+- codecov
