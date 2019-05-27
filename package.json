@@ -7,7 +7,9 @@
     "start": "node index.js",
     "start-watch": "nodemon index.js --exec babel-node --",
     "start-db": "sudo service mongod start",
-    "test": "mocha --recursive --exit"
+    "test": "mocha --recursive --exit",
+    "posttest": "tap --coverage-report=text-lcov | codecov",
+    "coveralls": "./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
     "home-automation",

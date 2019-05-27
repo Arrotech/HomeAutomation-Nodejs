@@ -7,13 +7,16 @@ install:
   - cat requirements.txt | xargs npm install -g
   - npm install coveralls
   - npm install mocha-lcov-reporter
+  - npm install -g codecov
   - npm install -g istanbul
 cache:
   directories:
     - "node_modules"
 services:
   - mongodb
+script:
+  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - codecov
 after_success:
-- bash <(curl -s https://codecov.io/bash)
 - coveralls
 - codecov
