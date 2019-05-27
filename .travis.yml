@@ -13,8 +13,6 @@ cache:
     - "node_modules"
 services:
   - mongodb
-script:
-  - istanbul cover _mocha
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 - coveralls
